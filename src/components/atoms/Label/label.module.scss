@@ -1,0 +1,11 @@
+@use "../../../styles//index.scss" as *;
+
+.Label {
+  color: $gray-scale-color-4;
+  font-size: 12px;
+  font-weight: 500;
+
+  &.hasError {
+    color: $error-color;
+  }
+}
