@@ -1,6 +1,6 @@
 import React from "react";
 import { BackButton } from "../../molecules/BackButton";
-import WhitebookLogo from "../../atoms/WhitebookLogo";
+import WhitebookLogo from "../../atoms/Icons/WhitebookLogo";
 import styles from "./header.module.scss";
 import { HeaderProps } from "@/types/headerProps";
 
