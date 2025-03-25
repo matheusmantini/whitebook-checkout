@@ -1,4 +1,4 @@
-import "@/styles/globals.scss";
+import "@/styles/_globals.scss";
 import type { AppProps } from "next/app";
 import { DM_Sans } from "next/font/google";
 
