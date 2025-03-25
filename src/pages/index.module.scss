@@ -11,6 +11,18 @@
 .Wrapper {
   max-width: 46.5rem;
   text-align: left;
+
+  @include large-phone {
+    width: 100%;
+    padding: 0 2rem;
+    max-width: 70%;
+  }
+
+  @include regular-phone {
+    width: 100%;
+    padding: 0 2rem;
+    max-width: 70%;
+  }
 }
 
 .Title {
@@ -19,6 +31,16 @@
   color: $whitebook-primary-color;
   line-height: 7.8rem;
   letter-spacing: -0.02em;
+
+  @include large-phone {
+    font-size: 4rem;
+    line-height: 6.8rem;
+  }
+
+  @include regular-phone {
+    font-size: 3rem;
+    line-height: 5.8rem;
+  }
 }
 
 .Text {
@@ -28,6 +50,18 @@
   line-height: 5.2rem;
   letter-spacing: -0.02em;
   margin-bottom: 3rem;
+
+  @include large-phone {
+    font-size: 3rem;
+    line-height: 4.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  @include regular-phone {
+    font-size: 2rem;
+    line-height: 3.2rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .BtnWrapper {
