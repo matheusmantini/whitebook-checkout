@@ -1,0 +1,36 @@
+@use "../styles/index" as *;
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.Wrapper {
+  max-width: 46.5rem;
+  text-align: left;
+}
+
+.Title {
+  font-size: 6rem;
+  font-weight: 700;
+  color: $whitebook-primary-color;
+  line-height: 7.8rem;
+  letter-spacing: -0.02em;
+}
+
+.Text {
+  font-size: 4rem;
+  font-weight: 400;
+  color: $black-color;
+  line-height: 5.2rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 3rem;
+}
+
+.BtnWrapper {
+  display: flex;
+  width: 19rem;
+}
