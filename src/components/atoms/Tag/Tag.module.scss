@@ -19,3 +19,16 @@
   letter-spacing: unset;
   color: $black-color;
 }
+
+.Discount {
+  background-color: $whitebook-secondary-color;
+  width: 4rem;
+}
+
+.DiscountText {
+  padding: 0.4rem 0.5rem 0.3rem 0.5rem;
+  font-size: 1rem;
+  color: $white-color;
+  line-height: 100%;
+  letter-spacing: -2%;
+}
