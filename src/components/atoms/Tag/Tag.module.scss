@@ -6,7 +6,9 @@
   display: inline-block;
   max-width: 200px;
   width: fit-content;
+  height: 1.6rem;
   text-align: center;
+  box-sizing: content-box;
 }
 
 .TextContent {
