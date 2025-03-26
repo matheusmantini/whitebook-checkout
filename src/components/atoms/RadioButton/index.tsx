@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./radioButton.module.scss";
 import { RadioButtonProps } from "@/types/radioButtonProps";
 
@@ -8,12 +8,8 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   checked = false,
   onChange,
 }) => {
-  const [isChecked, setIsChecked] = useState(checked);
-
   const handleChange = () => {
-    const newCheckedState = true;
-    setIsChecked(newCheckedState);
-    onChange?.(newCheckedState);
+    onChange?.(checked);
   };
 
   return (
@@ -22,7 +18,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
         type="radio"
         className={styles.RadioInput}
         name={name}
-        checked={isChecked}
+        checked={checked}
         onChange={handleChange}
       />
       <span className={styles.CustomRadio}></span>
