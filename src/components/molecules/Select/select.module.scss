@@ -1,0 +1,71 @@
+@use "../../../styles//index.scss" as *;
+
+.FormItem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  border: none;
+
+  .SelectWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 0.1rem solid $gray-scale-color-1;
+    width: 100%; // Garantir que o wrapper ocupe toda a largura
+  }
+
+  > select {
+    width: 100%; // Garantir que o select ocupe 100% da largura do wrapper
+    border: none;
+    border: none;
+    padding: 1rem 1rem 1rem 0; // Ajustar o padding interno para maior altura e consistência
+    font-size: 1.6rem;
+    color: $black-color;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+    box-sizing: border-box; // Incluir padding e borda na largura total
+
+    &::placeholder {
+      color: $gray-scale-color-3;
+      font-family: var(--font-dm-sans) !important;
+    }
+  }
+
+  .Select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    padding: 1rem 1rem 1rem 0; // Ajustar padding interno para maior altura
+    background-color: transparent;
+    font-size: 1.6rem;
+    color: $black-color;
+    width: 100%; // Garantir que o select ocupe 100% da largura
+    box-sizing: border-box; // Garantir que padding e borda sejam incluídos na largura total
+  }
+
+  .ChevronIcon {
+    position: absolute;
+    right: 1rem;
+    font-size: 1.2rem;
+    color: #888;
+    pointer-events: none;
+  }
+}
+
+.HasError > select {
+  border-bottom: 0.1rem solid $error-color;
+  color: $error-color;
+
+  &::placeholder {
+    color: $error-color;
+  }
+}
+
+.ErrorMessage {
+  color: $error-color;
+  margin-top: 0.4rem;
+  font-size: 1.2rem;
+}
