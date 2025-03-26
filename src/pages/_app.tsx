@@ -1,6 +1,7 @@
 import "@/styles/_globals.scss";
 import type { AppProps } from "next/app";
 import { DM_Sans } from "next/font/google";
+import { FormProvider, useForm } from "react-hook-form";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -9,9 +10,12 @@ const dmSans = DM_Sans({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const methods = useForm();
   return (
-    <main className={dmSans.className}>
-      <Component {...pageProps} />
-    </main>
+    <FormProvider {...methods}>
+      <main className={dmSans.className}>
+        <Component {...pageProps} />
+      </main>
+    </FormProvider>
   );
 }
