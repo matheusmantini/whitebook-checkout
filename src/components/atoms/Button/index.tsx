@@ -14,6 +14,7 @@ const Button = ({
   target,
   fontSize,
   fontWeight,
+  type = "button",
   ...otherProps
 }: ButtonProps) => {
   const className = `${styles.Button} ${styles[variant]} ${
@@ -53,6 +54,7 @@ const Button = ({
       disabled={disabled}
       aria-label={ariaLabel}
       style={customStyles}
+      type={type}
       {...(otherProps as React.ButtonHTMLAttributes<HTMLButtonElement>)}
     >
       {children}
