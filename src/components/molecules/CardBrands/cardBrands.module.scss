@@ -1,0 +1,24 @@
+@use "../../../styles/index" as *;
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.CardsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.311rem;
+}
+
+.IuguText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  color: $gray-scale-color-3;
+  margin-top: 1.381rem;
+}
