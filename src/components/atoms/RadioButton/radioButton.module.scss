@@ -1,0 +1,49 @@
+@use "../../../styles//index.scss" as *;
+
+.RadioLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.RadioInput {
+  display: none;
+}
+
+.CustomRadio {
+  width: 2rem;
+  height: 2rem;
+  border: 0.2rem solid $gray-scale-color-1;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 1rem;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0.4rem;
+    left: 0.4rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+}
+
+.RadioInput:checked + .CustomRadio {
+  border-color: $gray-scale-color-3;
+  background-color: transparent;
+}
+
+.RadioInput:checked + .CustomRadio:before {
+  background-color: $whitebook-primary-color;
+}
+
+.LabelText {
+  font-size: 1.6rem;
+}
