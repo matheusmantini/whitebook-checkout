@@ -11,7 +11,10 @@ import { useEffect } from "react";
 import { cardBrandsChecker } from "../molecules/CardBrands/cardsAvailableBrands";
 import { PaymentFormProps } from "@/types/paymentFormProps";
 
-const PaymentsForm: React.FC<PaymentFormProps> = ({ handleSelectedCard }) => {
+const PaymentsForm: React.FC<PaymentFormProps> = ({
+  handleSelectedCard,
+  selectedOffer,
+}) => {
   const {
     register,
     handleSubmit,
@@ -41,6 +44,13 @@ const PaymentsForm: React.FC<PaymentFormProps> = ({ handleSelectedCard }) => {
       }
     }
   }, [cardNumber, handleSelectedCard]);
+
+  const installmentOptions = selectedOffer?.installments
+    ? Array.from({ length: selectedOffer.installments }, (_, i) => ({
+        value: (i + 1).toString(),
+        label: (i + 1).toString(),
+      }))
+    : [];
 
   const onSubmit = (data: PaymentFormData) => {
     console.log("Form Data: ", data);
@@ -93,28 +103,27 @@ const PaymentsForm: React.FC<PaymentFormProps> = ({ handleSelectedCard }) => {
         error={errors.CPF}
       />
 
-      <Input
-        id="discountCoupon"
-        label="Cupom"
-        placeholder="Insira aqui"
-        register={register("discountCoupon")}
-        error={errors.discountCoupon}
-      />
+      {selectedOffer?.acceptsCoupon ? (
+        <Input
+          id="discountCoupon"
+          label="Cupom"
+          placeholder="Insira aqui"
+          register={register("discountCoupon")}
+          error={errors.discountCoupon}
+        />
+      ) : null}
 
-      <Select
-        id="installments"
-        label="Número de parcelas"
-        options={[
-          { value: "1", label: "1" },
-          { value: "3", label: "3" },
-          { value: "6", label: "6" },
-          { value: "12", label: "12" },
-        ]}
-        register={register("installments", {
-          required: "Número de parcelas é necessário",
-        })}
-        error={errors.installments}
-      />
+      {selectedOffer?.installments !== 1 ? (
+        <Select
+          id="installments"
+          label="Número de parcelas"
+          options={installmentOptions}
+          register={register("installments", {
+            required: "Número de parcelas é necessário",
+          })}
+          error={errors.installments}
+        />
+      ) : null}
 
       <Button type="submit" variant={BUTTON_VARIANTS.Primary} fontSize={14}>
         Finalizar Pagamento
