@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "./index.module.scss";
+import styles from "../styles/home.module.scss";
 import Button from "@/components/atoms/Button";
 import { BUTTON_VARIANTS } from "@/components/atoms/Button/variants";
 
