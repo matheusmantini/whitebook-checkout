@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import styles from "../styles/404.module.scss";
+import styles from "../styles/errorPage.module.scss";
 import Button from "@/components/atoms/Button";
 import { BUTTON_VARIANTS } from "@/components/atoms/Button/variants";
 
