@@ -13,6 +13,7 @@ import { getOffers } from "@/services/getOffers";
 import { CheckoutProps } from "@/types/checkoutProps";
 import NodeCache from "node-cache";
 import { Plan } from "@/types/planType";
+import { CheckoutProvider } from "@/contexts/CheckoutContext";
 
 const Checkout: React.FC<CheckoutProps> = ({ offers }) => {
   const [selectedCard, setSelectedCard] = useState("");
@@ -27,56 +28,58 @@ const Checkout: React.FC<CheckoutProps> = ({ offers }) => {
   };
 
   return (
-    <main>
-      <Head>
-        <title>Whitebook - Checkout</title>
-        <meta
-          name="description"
-          content="Finalize sua assinatura do Whitebook, o app de médicos para médicos. Escolha o plano ideal, acesse conteúdos de diversas especialidades e tenha a segurança de tomar a melhor decisão clínica."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+    <CheckoutProvider>
+      <main>
+        <Head>
+          <title>Whitebook - Checkout</title>
+          <meta
+            name="description"
+            content="Finalize sua assinatura do Whitebook, o app de médicos para médicos. Escolha o plano ideal, acesse conteúdos de diversas especialidades e tenha a segurança de tomar a melhor decisão clínica."
+          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
 
-      <Header />
-      <div className={styles.Container}>
-        <div className={styles.Wrapper}>
-          <section className={styles.Section}>
-            <span className={styles.InfoContainer}>
-              <h2 className={styles.Title}>Estamos quase lá!</h2>
-              <h3 className={styles.Subtitle}>
-                Insira seus dados de pagamento abaixo:
-              </h3>
-            </span>
-            <CardBrands selectedCard={selectedCard} />
-            <PaymentForm
-              handleSelectedCard={handleSelectedCard}
-              selectedOffer={selectedOffer}
-            />
-          </section>
-
-          <section className={styles.Section}>
-            <span className={styles.InfoContainer}>
-              <h2 className={styles.Title}>Confira o seu plano:</h2>
-              <Tag text="fulano@cicrano.com.br" />
-            </span>
-
-            <div>
-              <AvailablePlans
-                offers={offers}
-                handleSelectedOffer={handleSelectedOffer}
+        <Header />
+        <div className={styles.Container}>
+          <div className={styles.Wrapper}>
+            <section className={styles.Section}>
+              <span className={styles.InfoContainer}>
+                <h2 className={styles.Title}>Estamos quase lá!</h2>
+                <h3 className={styles.Subtitle}>
+                  Insira seus dados de pagamento abaixo:
+                </h3>
+              </span>
+              <CardBrands selectedCard={selectedCard} />
+              <PaymentForm
+                handleSelectedCard={handleSelectedCard}
+                selectedOffer={selectedOffer}
               />
-            </div>
+            </section>
 
-            <div className={styles.Help}>
-              <Tooltip content="Informações sobre a cobrança">
-                <p>Sobre a cobrança</p>
-                <HelpIcon />
-              </Tooltip>
-            </div>
-          </section>
+            <section className={styles.Section}>
+              <span className={styles.InfoContainer}>
+                <h2 className={styles.Title}>Confira o seu plano:</h2>
+                <Tag text="fulano@cicrano.com.br" />
+              </span>
+
+              <div>
+                <AvailablePlans
+                  offers={offers}
+                  handleSelectedOffer={handleSelectedOffer}
+                />
+              </div>
+
+              <div className={styles.Help}>
+                <Tooltip content="Informações sobre a cobrança">
+                  <p>Sobre a cobrança</p>
+                  <HelpIcon />
+                </Tooltip>
+              </div>
+            </section>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </CheckoutProvider>
   );
 };
 
