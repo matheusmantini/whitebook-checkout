@@ -4,7 +4,10 @@ import styles from "./availablePlans.module.scss";
 import { formatCurrencyBRL } from "@/utils/formatCurrency";
 import { AvailablePlansProps } from "@/types/availablePlansProps";
 
-const AvailablePlans: React.FC<AvailablePlansProps> = ({ offers }) => {
+const AvailablePlans: React.FC<AvailablePlansProps> = ({
+  offers,
+  handleSelectedOffer,
+}) => {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(
     offers[0].id.toString(),
   );
@@ -15,6 +18,14 @@ const AvailablePlans: React.FC<AvailablePlansProps> = ({ offers }) => {
     }
   }, []);
 
+  useEffect(() => {
+    const selectedOffer = offers?.filter(
+      (offer) => offer?.id.toString() === selectedPlan,
+    )[0];
+
+    handleSelectedOffer(selectedOffer);
+  }, [selectedPlan]);
+
   return (
     <div className={styles.Container}>
       {offers.map((plan) => (
@@ -24,11 +35,7 @@ const AvailablePlans: React.FC<AvailablePlansProps> = ({ offers }) => {
           priceFrom={formatCurrencyBRL(plan.fullPrice)}
           priceTo={formatCurrencyBRL(plan.fullPrice - plan.discountAmmount)}
           discount={`-${plan.discountPercentage * 100}%`}
-          installment={
-            plan.splittable
-              ? `${plan.installments}x de ${formatCurrencyBRL((plan.fullPrice - plan.discountAmmount) / plan.installments)}/mês`
-              : undefined
-          }
+          installment={`${plan.installments}x de ${formatCurrencyBRL((plan.fullPrice - plan.discountAmmount) / plan.installments)}/${plan.periodLabel}`}
           selected={Number(selectedPlan) === Number(plan.id)}
           onSelect={() => setSelectedPlan(plan.id.toString())}
         />
