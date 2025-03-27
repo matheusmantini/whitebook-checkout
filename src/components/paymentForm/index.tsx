@@ -10,11 +10,17 @@ import { Select } from "../molecules/Select";
 import { useEffect } from "react";
 import { cardBrandsChecker } from "../molecules/CardBrands/cardsAvailableBrands";
 import { PaymentFormProps } from "@/types/paymentFormProps";
+import { removeMask } from "@/utils/removeMask";
+import { addSubscription } from "@/services/addSubscription";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
+import { setCookie } from "nookies";
 
 const PaymentsForm: React.FC<PaymentFormProps> = ({
   handleSelectedCard,
   selectedOffer,
 }) => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -53,8 +59,45 @@ const PaymentsForm: React.FC<PaymentFormProps> = ({
       }))
     : [];
 
-  const onSubmit = (data: PaymentFormData) => {
-    console.log("Form Data: ", data);
+  const onSubmit = async (data: PaymentFormData) => {
+    const subscriptionData = {
+      couponCode: selectedOffer?.acceptsCoupon ? data.discountCoupon : null,
+      creditCardCPF: removeMask(data.CPF),
+      creditCardCVV: data.cardCVV,
+      creditCardExpirationDate: data.cardExpirationDate,
+      creditCardHolder: data.holderName,
+      creditCardNumber: removeMask(data.cardNumber),
+      gateway: selectedOffer?.gateway,
+      installments: selectedOffer?.installments ? data.installments : 1,
+      offerId: selectedOffer?.id,
+      userId: Date.now() + Math.floor(Math.random() * 1000),
+    };
+
+    try {
+      const response = await addSubscription(subscriptionData);
+
+      if (response.ok || response.id) {
+        toast.success("Assinatura realizada com sucesso!");
+
+        const confirmationToken =
+          Date.now().toString(36) + Math.random().toString(36).substring(2);
+
+        setCookie(null, "subscribed", confirmationToken, {
+          maxAge: 300,
+          path: "/",
+          secure: process.env.NODE_ENV === "production",
+          sameSite: "lax",
+        });
+
+        router.push("/checkout/confirmation");
+      } else {
+        throw new Error(
+          `Erro: ${response?.statusText || "Falha desconhecida"}`,
+        );
+      }
+    } catch {
+      toast.error("Erro ao processar a assinatura. Tente novamente.");
+    }
   };
 
   return (
