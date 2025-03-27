@@ -1,0 +1,53 @@
+@use "../../../styles/index.scss" as *;
+
+.Card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  border: 1px solid $whitebook-primary-color;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-color: $whitebook-secondary-color;
+  }
+}
+
+.Selected {
+  border-color: $whitebook-primary-color;
+}
+
+.Content {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.Title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: unset;
+  color: $whitebook-primary-color;
+  margin-bottom: 0.4rem;
+}
+
+.Price {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: unset;
+  color: $whitebook-primary-color;
+  margin-bottom: 0.4rem;
+}
+
+.Installment {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: unset;
+  color: $whitebook-secondary-color;
+}
