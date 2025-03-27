@@ -1,0 +1,18 @@
+@use "../../styles/index" as *;
+
+.Wrapper {
+  width: 32rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.HalfRow {
+  display: flex;
+  width: 100%;
+  gap: 5rem;
+
+  > div {
+    width: 100%;
+  }
+}

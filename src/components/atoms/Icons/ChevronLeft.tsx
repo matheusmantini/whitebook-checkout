@@ -1,5 +1,5 @@
 import React from "react";
-import { AccessibleIconProps } from "../../types/accessibleIconProps";
+import { AccessibleIconProps } from "../../../types/accessibleIconProps";
 
 const ChevronLeft = ({
   width = "8",

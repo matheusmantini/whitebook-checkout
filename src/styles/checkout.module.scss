@@ -1,0 +1,88 @@
+@use "./index.scss" as *;
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $white-color;
+  width: 100%;
+  margin-top: 4rem;
+  margin-bottom: 6.4rem;
+}
+
+.Wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 21rem;
+
+  @include large-phone {
+    flex-direction: column-reverse;
+    gap: 5rem;
+  }
+
+  @include regular-phone {
+    flex-direction: column-reverse;
+    gap: 5rem;
+  }
+
+  @include tablet {
+    flex-direction: column-reverse;
+    gap: 5rem;
+  }
+
+  @include small-desktop {
+    gap: 10rem;
+  }
+}
+
+.Section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 33rem;
+}
+
+.Section:last-of-type {
+  @include large-phone {
+    border-bottom: 2px solid $gray-scale-color-3;
+    padding-bottom: 5rem;
+  }
+
+  @include regular-phone {
+    border-bottom: 2px solid $gray-scale-color-3;
+    padding-bottom: 5rem;
+  }
+
+  @include tablet {
+    border-bottom: 2px solid $gray-scale-color-3;
+    padding-bottom: 5rem;
+  }
+}
+
+.Title {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -2%;
+}
+
+.Subtitle {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -2%;
+}
+
+.InfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.Help {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

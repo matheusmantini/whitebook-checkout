@@ -1,0 +1,39 @@
+@use "../../../styles//index.scss" as *;
+
+.FormItem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+
+  > input {
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.1rem solid $gray-scale-color-1;
+    padding-bottom: 1rem;
+    font-size: 1.6rem;
+    color: $black-color;
+    font-family: var(--font-dm-sans);
+
+    &::placeholder {
+      color: $gray-scale-color-3;
+    }
+  }
+}
+
+.HasError > input {
+  border-bottom: 0.1rem solid $error-color;
+  color: $error-color;
+
+  &::placeholder {
+    color: $error-color;
+  }
+}
+
+.ErrorMessage {
+  color: $error-color;
+  margin-top: 0.4rem;
+  font-size: 1.2rem;
+}

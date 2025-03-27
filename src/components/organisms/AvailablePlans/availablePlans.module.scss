@@ -1,0 +1,7 @@
+@use "../../../styles/index.scss" as *;
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}

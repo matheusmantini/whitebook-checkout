@@ -1,0 +1,84 @@
+@use "./index.scss" as *;
+
+.Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: $white-color;
+  text-align: center;
+
+  @include large-phone {
+    padding: 1rem;
+  }
+
+  @include regular-phone {
+    padding: 1rem;
+  }
+}
+
+.Content {
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.StatusCode {
+  font-size: 12rem;
+  line-height: 1;
+  color: $whitebook-secondary-color;
+  margin: 0 0 2rem;
+  font-weight: 700;
+  opacity: 0.8;
+
+  @include large-phone {
+    font-size: 5rem;
+  }
+
+  @include regular-phone {
+    font-size: 5rem;
+  }
+}
+
+.Message {
+  margin-bottom: 3rem;
+}
+
+.Title {
+  font-size: 3rem;
+  color: $whitebook-primary-color;
+  margin: 0 0 1rem;
+  font-weight: 600;
+
+  @include large-phone {
+    font-size: 1.5rem;
+  }
+
+  @include regular-phone {
+    font-size: 1.5rem;
+  }
+}
+
+.Description {
+  font-size: 1.5rem;
+  color: $whitebook-primary-color;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 40rem;
+  margin: 0 auto;
+
+  @include large-phone {
+    font-size: 1rem;
+  }
+
+  @include regular-phone {
+    font-size: 1rem;
+  }
+}
+
+.ActionWrapper {
+  width: 20rem;
+}

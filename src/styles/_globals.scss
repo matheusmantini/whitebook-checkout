@@ -16,6 +16,11 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 2px 0 0 $whitebook-secondary-color;
+  }
 }
 
 a {

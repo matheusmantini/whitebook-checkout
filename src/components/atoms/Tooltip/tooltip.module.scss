@@ -1,0 +1,35 @@
+@use "../../../styles/index.scss" as *;
+.Tooltip {
+  position: relative;
+  display: flex;
+  gap: 1.2rem;
+  cursor: pointer;
+
+  .Text {
+    font-size: 1.4rem;
+    visibility: hidden;
+    width: 200px;
+    background-color: $gray-scale-color-4;
+    color: $white-color;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &:hover {
+    padding-bottom: 0.4rem;
+    border-bottom: 0.1rem solid $whitebook-secondary-color;
+  }
+
+  &:hover .Text {
+    visibility: visible;
+    opacity: 0.95;
+  }
+}
