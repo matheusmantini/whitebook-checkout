@@ -18,11 +18,12 @@ const PaymentsForm: React.FC<PaymentFormProps> = ({
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
     watch,
   } = useForm<PaymentFormData>({
     resolver: zodResolver(paymentSchema),
     mode: "onChange",
+    reValidateMode: "onChange",
   });
 
   const cardNumber = watch("cardNumber");
@@ -125,7 +126,12 @@ const PaymentsForm: React.FC<PaymentFormProps> = ({
         />
       ) : null}
 
-      <Button type="submit" variant={BUTTON_VARIANTS.Primary} fontSize={14}>
+      <Button
+        type="submit"
+        variant={BUTTON_VARIANTS.Primary}
+        fontSize={14}
+        disabled={!isValid}
+      >
         Finalizar Pagamento
       </Button>
     </form>
