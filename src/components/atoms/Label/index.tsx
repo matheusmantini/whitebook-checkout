@@ -1,5 +1,5 @@
 import React from "react";
-import { LabelProps } from "../../../types/labelProps";
+import { LabelProps } from "@/types/labelProps";
 import styles from "./label.module.scss";
 
 const Label: React.FC<LabelProps> = ({
