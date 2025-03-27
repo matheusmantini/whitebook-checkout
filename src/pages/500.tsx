@@ -27,12 +27,14 @@ const InternalServerErrorPage: NextPage = () => {
             </p>
           </div>
 
-          <Button
-            variant={BUTTON_VARIANTS.Primary}
-            onClick={() => router.push("/")}
-          >
-            Voltar para a página inicial
-          </Button>
+          <div className={styles.ActionWrapper}>
+            <Button
+              variant={BUTTON_VARIANTS.Primary}
+              onClick={() => router.push("/")}
+            >
+              Voltar para a página inicial
+            </Button>
+          </div>
         </div>
       </div>
     </>

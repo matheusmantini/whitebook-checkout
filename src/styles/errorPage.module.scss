@@ -20,6 +20,10 @@
 
 .Content {
   width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .StatusCode {
@@ -73,4 +77,8 @@
   @include regular-phone {
     font-size: 1rem;
   }
+}
+
+.ActionWrapper {
+  width: 20rem;
 }
