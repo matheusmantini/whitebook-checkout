@@ -1,0 +1,73 @@
+@use "../../../styles//index.scss" as *;
+
+.Card {
+  background-color: $white-color;
+  border-radius: 1.5rem;
+  box-shadow: 0px 4px 20px 0px #0000000d;
+  padding: 1.5rem 1.7rem 2.4rem 1.6rem;
+  width: 34.3rem;
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $gray-scale-color-1;
+  padding: 1.6rem 2rem 1.8rem 2rem;
+  border-radius: 1.5rem;
+}
+
+.Icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $gray-scale-color-2;
+}
+
+.HeaderInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+  color: $whitebook-primary-color;
+}
+
+.SelectedPlan {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.Price {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.Details {
+  margin-top: 12px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+  margin: 1.9rem 2.1rem 0 2rem;
+}
+
+.Label {
+  color: $gray-scale-color-3;
+}
+
+.Value {
+  color: $black-color;
+}
+
+.Detail {
+  display: flex;
+  justify-content: space-between;
+  height: 1.8rem;
+}

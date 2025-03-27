@@ -15,12 +15,14 @@ import { addSubscription } from "@/services/addSubscription";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { setCookie } from "nookies";
+import { useCheckout } from "@/contexts/CheckoutContext";
 
 const PaymentsForm: React.FC<PaymentFormProps> = ({
   handleSelectedCard,
   selectedOffer,
 }) => {
   const router = useRouter();
+  const { setSubscribedPlanInfo } = useCheckout();
   const {
     register,
     handleSubmit,
@@ -88,6 +90,14 @@ const PaymentsForm: React.FC<PaymentFormProps> = ({
           secure: process.env.NODE_ENV === "production",
           sameSite: "lax",
         });
+
+        const subscribedPlanInfoData = {
+          selectedOffer: selectedOffer,
+          email: "fulano@cicrano.com.br",
+          cpf: response?.creditCardCPF,
+        };
+
+        setSubscribedPlanInfo(subscribedPlanInfoData);
 
         router.push("/checkout/confirmation");
       } else {
