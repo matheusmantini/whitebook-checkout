@@ -22,3 +22,16 @@
   color: $gray-scale-color-3;
   margin-top: 1.381rem;
 }
+
+.Grayscale {
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition:
+    filter 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.Selected {
+  filter: none;
+  opacity: 1;
+}

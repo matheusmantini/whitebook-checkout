@@ -18,19 +18,20 @@ const CardBrands: React.FC<CardBrandsProps> = ({ selectedCard }) => {
     [cardBrands.AMERICANEXPRESS]: <CreditCardAmericanExpress />,
   };
 
+  const availableCardsBrands = Object.entries(cardIcons).map(
+    ([brand, Icon]) => (
+      <span
+        key={brand}
+        className={brand === selectedCard ? styles.Selected : styles.Grayscale}
+      >
+        {Icon}
+      </span>
+    ),
+  );
+
   return (
     <div className={styles.Container}>
-      {selectedCard ? (
-        cardIcons[selectedCard]
-      ) : (
-        <div className={styles.CardsContainer}>
-          <CreditCardMastercard />
-          <CreditCardDinnersClub />
-          <CreditCardAmericanExpress />
-          <CreditCardVisa />
-          <CreditCardElo />
-        </div>
-      )}
+      <div className={styles.CardsContainer}>{availableCardsBrands}</div>
       <p className={styles.IuguText}>
         Pagamentos por <IuguLogo />
       </p>
