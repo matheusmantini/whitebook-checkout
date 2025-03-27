@@ -1,6 +1,6 @@
 import CardBrands from "@/components/molecules/CardBrands";
 import Header from "@/components/organisms/Header";
-import PaymentForm from "@/components/paymentForm";
+import PaymentForm from "@/components/organisms/PaymentForm";
 import Head from "next/head";
 import { useState } from "react";
 import styles from "../../styles/checkout.module.scss";
