@@ -22,7 +22,7 @@ const SubscribedPlanCard = () => {
     : "-";
 
   return (
-    <div className={styles.Card}>
+    <div className={styles.Card} data-testid="subscribed-plan">
       <div className={styles.Header}>
         <span className={styles.Icon}>
           <StarIcon />

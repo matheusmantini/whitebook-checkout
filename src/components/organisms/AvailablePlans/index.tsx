@@ -16,7 +16,7 @@ const AvailablePlans: React.FC<AvailablePlansProps> = ({
     if (offers.length > 0) {
       setSelectedPlan(offers[0].id.toString());
     }
-  }, []);
+  }, [offers]);
 
   useEffect(() => {
     const selectedOffer = offers?.filter(
@@ -24,7 +24,7 @@ const AvailablePlans: React.FC<AvailablePlansProps> = ({
     )[0];
 
     handleSelectedOffer(selectedOffer);
-  }, [selectedPlan]);
+  }, [selectedPlan, offers, handleSelectedOffer]);
 
   return (
     <div className={styles.Container}>
