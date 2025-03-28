@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import styles from "./button.module.scss";
 import { BUTTON_VARIANTS } from "./variants";
-import { ButtonProps } from "../../../types/buttonProps";
+import { ButtonProps } from "@/types/buttonProps";
 
 const Button = ({
   children,

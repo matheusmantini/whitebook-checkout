@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ChevronLeft from "../../atoms/Icons/ChevronLeft";
+import ChevronLeft from "@/components/atoms/Icons/ChevronLeft";
 import { BackButtonProps } from "@/types/backButtonProps";
 import styles from "./backButton.module.scss";
 

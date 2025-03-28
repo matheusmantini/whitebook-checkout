@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Tag.module.scss";
+import styles from "./tag.module.scss";
 import { TagProps } from "@/types/tagProps";
 
 const Tag: React.FC<TagProps> = ({ text, isDiscount = false }) => {
